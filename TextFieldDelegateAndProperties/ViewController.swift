@@ -90,7 +90,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         else
         {
-            return false
+            if textField == txtUser{
+                let allowedCharacter = CharacterSet.letters
+//                let characterSet = CharacterSet(charactersIn: allowedCharacter)
+                let typeCharacter = CharacterSet(charactersIn: string)
+                return allowedCharacter.isSuperset(of: typeCharacter)
+            }
+            return true
         }
     }
     
