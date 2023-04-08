@@ -92,9 +92,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         {
             if textField == txtUser{
                 let allowedCharacter = CharacterSet.letters
-//                let characterSet = CharacterSet(charactersIn: allowedCharacter)
                 let typeCharacter = CharacterSet(charactersIn: string)
-                return allowedCharacter.isSuperset(of: typeCharacter)
+                let val = allowedCharacter.isSuperset(of: typeCharacter)
+                
+                if val {
+                    txtUser.layer.borderWidth = 0
+                    txtUser.layer.borderColor = nil
+                    return true
+                }
+                else
+                {
+                    txtUser.layer.borderWidth = 3.0
+                    txtUser.layer.borderColor = UIColor(red: (250.0 / 255.0), green: (60.0 / 255.0), blue: (50.0 / 255.0), alpha: 1).cgColor
+                    return false
+                }
+                
             }
             return true
         }
